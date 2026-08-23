@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Our Cause | Hope Forward NGO</title>
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+      padding: 32px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .header h1 {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .freq-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    .freq-toggle button {
+      border: none;
+      background: none;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .freq-toggle button.active {
+      background: var(--card-bg);
+      color: var(--text);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .amounts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .amount-btn {
+      border: 2px solid var(--border);
+      background: transparent;
+      padding: 14px 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .amount-btn:hover {
+      border-color: var(--primary);
+    }
+
+    .amount-btn.selected {
+      border-color: var(--primary);
+      background: #ecfdf5;
+      color: var(--primary-dark);
+    }
+
+    .input-group {
+      margin-bottom: 16px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      border-color: var(--primary);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: var(--primary-dark);
+    }
+
+    .trust-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+<body>
+<a href="file:///C:/Users/HARUN/Documents/NGO%20Website/About%20us.html">Home</a>
+</body>
+</html>
+
+
+  <div class="container">
+    <div class="header">
+      <h1>Make a Difference Today</h1>
+      <p>Your contribution directly funds clean water initiatives and community education.</p>
+    </div>
+
+    <!-- Frequency Toggle -->
+    <div class="freq-toggle">
+      <button type="button" class="active" onclick="setFrequency(this)">One-Time</button>
+      <button type="button" onclick="setFrequency(this)">Monthly</button>
+    </div>
+
+    <form id="donationForm" onsubmit="handleDonate(event)">
+      <!-- Amount Selection -->
+      <div class="section-title">Select Amount</div>
+      <div class="amounts-grid">
+        <button type="button" class="amount-btn" onclick="selectAmount(25, this)">$25</button>
+        <button type="button" class="amount-btn selected" onclick="selectAmount(50, this)">$50</button>
+        <button type="button" class="amount-btn" onclick="selectAmount(100, this)">$100</button>
+      </div>
+
+      <div class="input-group">
+        <label for="customAmount">Or enter custom amount ($)</label>
+        <input type="number" id="customAmount" min="1" placeholder="Other amount" oninput="clearSelectedBtn()" />
+      </div>
+
+      <!-- Donor Information -->
+      <div class="section-title" style="margin-top: 24px;">Donor Details</div>
+      
+      <div class="form-grid-2">
+        <div class="input-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" required />
+        </div>
+        <div class="input-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" required />
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="for tax-deductible receipt" required />
+      </div>
+
+      <div class="input-group">
+        <label for="cause">Allocate Donation To</label>
+        <select id="cause">
+          <option value="general">Where Needed Most</option>
+          <option value="clean-water">Clean Water Project</option>
+          <option value="education">Children's Education Fund</option>
+          <option value="healthcare">Emergency Medical Relief</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn-submit" id="submitBtn">Donate $50</button>
+
+      <div class="trust-footer">
+        🔒 256-bit encrypted secure checkout. 501(c)(3) tax-exempt status.
+      </div>
+    </form>
+  </div>
+
+  <script>
+    let currentAmount = 50;
+
+    function selectAmount(val, btn) {
+      currentAmount = val;
+      document.getElementById('customAmount').value = '';
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      updateButton();
+    }
+
+    function clearSelectedBtn() {
+      const customVal = parseFloat(document.getElementById('customAmount').value);
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+      currentAmount = isNaN(customVal) || customVal <= 0 ? 0 : customVal;
+      updateButton();
+    }
+
+    function setFrequency(btn) {
+      document.querySelectorAll('.freq-toggle button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function updateButton() {
+      const btn = document.getElementById('submitBtn');
+      btn.textContent = currentAmount > 0 ? `Donate $${currentAmount}` : 'Enter an Amount';
+      btn.disabled = currentAmount <= 0;
+    }
+
+    function handleDonate(e) {
+      e.preventDefault();
+      if (currentAmount <= 0) return;
+      
+      const payload = {
+        amount: currentAmount,
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        cause: document.getElementById('cause').value
+      };
+
+      console.log('Processing donation payload:', payload);
+      alert(`Proceeding to payment processor for $${currentAmount}...`);
+      // Attach your payment gateway handler here (e.g., Stripe, PayPal, Razorpay)
+    }
+  </script>
+
+</body>
+</html>
